@@ -25,7 +25,6 @@ public class ProductController {
     @GetMapping("api/aaa")
     ResponseEntity<?> getStore() throws SQLException {
         List<ProductDto> products = this.productService.selectStore();
-        System.out.print("0");
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 }
