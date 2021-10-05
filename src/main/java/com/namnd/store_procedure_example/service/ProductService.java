@@ -1,6 +1,9 @@
 package com.namnd.store_procedure_example.service;
 
 import java.sql.SQLException;
+import java.util.List;
+
+import com.namnd.store_procedure_example.dto.ProductDto;
 
 /**
  * @author nam.nd
@@ -8,5 +11,5 @@ import java.sql.SQLException;
  */
 public interface ProductService {
 
-    void selectStore() throws SQLException;
+    List<ProductDto>selectStore() throws SQLException;
 }

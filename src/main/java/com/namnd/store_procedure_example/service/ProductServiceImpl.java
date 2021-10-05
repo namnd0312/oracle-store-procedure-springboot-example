@@ -32,11 +32,10 @@ public class ProductServiceImpl implements ProductService {
 //    String password = "123456";
 
     @Override
-    public void selectStore() throws SQLException {
-
+    public List<ProductDto> selectStore() throws SQLException {
+    	  List<ProductDto> result = new ArrayList<>();
         try {
-            List<ProductDto> result = new ArrayList<>();
-
+          
             EntityManagerFactoryInfo factory = (EntityManagerFactoryInfo) em.getEntityManagerFactory();
             Connection connection = factory.getDataSource().getConnection();
 
@@ -57,11 +56,13 @@ public class ProductServiceImpl implements ProductService {
                 ObjectMapper mapper = new ObjectMapper();
                 log.info(mapper.writeValueAsString(productDto));
             }
+            
             rs.close();
 
         } catch (Exception e) {
             log.error(e.getMessage(), e);
         }
+        return result;
 
 
     }
